@@ -1,0 +1,6 @@
+.container-detail-product {
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 450px);
+  height: calc(100% - 80px);
+  align-content: center;
+}
