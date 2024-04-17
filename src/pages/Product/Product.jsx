@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import formatPrice from "../../utils/formatPrice";
 import "./Product.styles.css";
 import "../../App.css";
 
@@ -13,27 +14,32 @@ function Product() {
 
   return (
     <main className="container-detail-product row">
-      <section>
-        <img src={product.image} width="350" height="350" />
+      <section className="column-image">
+        <img src={product.image} width="450" height="450" />
       </section>
-      <section>
-        <h3>{product.name}</h3>
-        <h4>
-          {Intl.NumberFormat("pt-br", {
-            style: "currency",
-            currency: "BRL",
-            roundingMode: "floor",
-          }).format(product.price)}
-        </h4>
-        <h5>
-          10x{" "}
-          {Intl.NumberFormat("pt-br", {
-            style: "currency",
-            currency: "BRL",
-            roundingMode: "floor",
-          }).format(product.price / 10)}
-        </h5>
-        <button type="button">Comprar</button>
+      <section className="column-info">
+        <div class="wrapper-info">
+          <div>
+            <h1>{product.brand ? product.brand : "MARCA NÃO REGISTRADA"}</h1>
+            <h3>{product.name}</h3>
+
+            <div class="product-prices">
+              <div class="product-price-value">
+                <del></del>R$ 1.199,99
+              </div>
+              <div class="product-price-instalments">
+                <span>EM ATÉ</span>
+                <b>10x</b> DE <b>R$ 119,99</b>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <button type="button" className="buy-button">
+              Comprar
+            </button>
+          </div>
+        </div>
       </section>
     </main>
   );
