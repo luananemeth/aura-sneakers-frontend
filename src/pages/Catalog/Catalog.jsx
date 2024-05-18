@@ -3,8 +3,11 @@ import "./Catalog.styles.css";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { createApiSneakers } from "../../services/apiAuraSneakersService";
+import { useNavigate } from "react-router-dom";
 
 function Catalog() {
+  const navigate = useNavigate();
+
   const [searchParams] = useSearchParams();
   const q = searchParams.get("q");
   const api = createApiSneakers();

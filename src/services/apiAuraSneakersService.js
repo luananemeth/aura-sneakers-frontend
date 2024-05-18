@@ -13,5 +13,21 @@ export const createApiSneakers = () => {
     return response.data;
   };
 
-  return { getAllProducts, getAllProductsByName };
+  const registerCustomer = async (data) => {
+    const response = await axios.post(
+      'http://localhost:3000/customers',
+      data
+    );
+    return response.data;
+  }
+
+  const loginCustomer = async (data) => {
+    const response = await axios.post(
+      'http://localhost:3000/login',
+      data
+    );
+    return response.data;
+  }
+
+  return { getAllProducts, getAllProductsByName, registerCustomer, loginCustomer };
 };
