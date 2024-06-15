@@ -1,16 +1,20 @@
-import PropTypes from 'prop-types';
-import { createContext, useState } from 'react';
+import PropTypes from "prop-types";
+import { createContext, useState } from "react";
 
 const defaultValues = {
   user: {},
-  onChange: () => { },
+  onChange: () => {},
 };
 
 export const UserContext = createContext(defaultValues);
 
 function UserProvider({ children }) {
-  const sessionStorageUser = JSON.parse(window.sessionStorage.getItem('AURA_SNEAKERS_USER'));
-  const [user, setUser] = useState(sessionStorageUser ? sessionStorageUser : {});
+  const sessionStorageUser = JSON.parse(
+    window.sessionStorage.getItem("AURA_SNEAKERS_USER")
+  );
+  const [user, setUser] = useState(
+    sessionStorageUser ? sessionStorageUser : {}
+  );
 
   function onChange(name, value) {
     setUser((prevState) => ({

@@ -18,7 +18,7 @@ function Home() {
       return setProducts(products);
     }
     fetchData();
-  }, [products]);
+  }, []);
 
   const getPriceInstallment = (price) => {
     const priceInstallment = price / 10;

@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import Catalog from "./pages/Catalog/Catalog";
 import Identity from "./pages/Identity/Identity";
 import UserProvider from "./services/UserProvider";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/catalog" Component={Catalog}></Route>
           </Routes>
         </Router>
+        <ToastContainer />
       </UserProvider>
     </>
   );
